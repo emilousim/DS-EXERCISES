@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Solution: Sales Report | Devmountain Foundations</title>
+
+      <link
+        href="../_static/pygments.css"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <link href="../_static/devmountain.css" rel="stylesheet" type="text/css" />
+          <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+          <link rel="stylesheet" type="text/css" href="../_static/devmountain.css" />
+          <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+          <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+
+      <script src="../_static/pdfobject.min.js"></script>
+      
+  </head>
+  <body>
+      <div id="handouts-container">
+        <header id="page-header">
+            <p id="project-title">Devmountain Foundations</p>
+            <p id="page-title">Solution: Sales Report</p>
+              <p id="backlink">
+                <a href="/"> &laquo; Back to Homepage </a>
+              </p>
+        </header>
+
+        <nav id="page-toc"><ul>
+<li><a class="reference internal" href="#">Solution: Sales Report</a><ul>
+<li><a class="reference internal" href="#code">Code</a></li>
+<li><a class="reference internal" href="#refactored-code">Refactored Code</a><ul>
+<li><a class="reference internal" href="#id1">Code</a></li>
+<li><a class="reference internal" href="#id2">Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+
+        <main id="page-content">
+            <section class="section" id="solution-sales-report">
+<h1>Solution: Sales Report</h1>
+<section class="section" id="code">
+<h2>Code</h2>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">sales_report.py</span></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="sd">&quot;&quot;&quot;Generate sales report showing total melons each salesperson sold.&quot;&quot;&quot;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="n">salespeople</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos"> 5</span><span class="n">melons_sold</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># Loop over each line in file object</span>
+<span class="linenos"> 8</span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sales-report.txt&#39;</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">10</span>    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>  <span class="c1"># Remove trailing whitespace</span>
+<span class="linenos">11</span>    <span class="n">entries</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>  <span class="c1"># Create a list of data</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span>    <span class="c1"># Get name of salesperson and no. of melons they&#39;ve sold</span>
+<span class="linenos">14</span>    <span class="n">salesperson</span> <span class="o">=</span> <span class="n">entries</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">15</span>    <span class="n">melons</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">entries</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span>    <span class="c1"># If the salesperson is already in `salespeople`, increment the no. of</span>
+<span class="linenos">18</span>    <span class="c1"># melons they&#39;ve sold.</span>
+<span class="linenos">19</span>    <span class="c1">#</span>
+<span class="linenos">20</span>    <span class="c1"># Otherwise, add the salesperson&#39;s name to `salespeople` and</span>
+<span class="linenos">21</span>    <span class="c1"># `melons` to `melons_sold`</span>
+<span class="linenos">22</span>    <span class="k">if</span> <span class="n">salesperson</span> <span class="ow">in</span> <span class="n">salespeople</span><span class="p">:</span>
+<span class="linenos">23</span>        <span class="c1"># Find the position where `salesperson` is stored in `salespeople`</span>
+<span class="linenos">24</span>        <span class="n">position</span> <span class="o">=</span> <span class="n">salespeople</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">salesperson</span><span class="p">)</span>
+<span class="linenos">25</span>        <span class="c1"># Use that position to index into `melons_sold`</span>
+<span class="linenos">26</span>        <span class="n">melons_sold</span><span class="p">[</span><span class="n">position</span><span class="p">]</span> <span class="o">+=</span> <span class="n">melons</span>
+<span class="linenos">27</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">28</span>        <span class="n">salespeople</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">salesperson</span><span class="p">)</span>
+<span class="linenos">29</span>        <span class="n">melons_sold</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">melons</span><span class="p">)</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="c1"># Loop over indices of `salespeople` and use it to index into `salespeople` and</span>
+<span class="linenos">32</span><span class="c1"># `melons_sold`.</span>
+<span class="linenos">33</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">salespeople</span><span class="p">)):</span>
+<span class="linenos">34</span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">salespeople</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1"> sold </span><span class="si">{</span><span class="n">melons_sold</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1"> melons&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section class="section" id="refactored-code">
+<h2>Refactored Code</h2>
+<p>You’ll find a refactored version of <cite>sales_report.py</cite> below. We also have
+additional explanations in the <a class="reference external" href="#notes">Notes</a> section.</p>
+<section class="section" id="id1">
+<h3>Code</h3>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">sales_report_refactor.py</span></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="sd">&quot;&quot;&quot;Generate sales report showing total melons each salesperson sold.&quot;&quot;&quot;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span> <span class="nf">get_melons_sold_by_salesperson</span><span class="p">(</span><span class="n">log_file_path</span><span class="p">):</span>
+<span class="linenos"> 5</span>    <span class="sd">&quot;&quot;&quot;Return a dictionary of {salesperson_name: melons_sold}.</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="sd">    Arguments:</span>
+<span class="linenos"> 8</span><span class="sd">        log_file_path (str) - the path to a sales report log file</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="sd">    Return:</span>
+<span class="linenos">11</span><span class="sd">        mels_by_sales (dict)</span>
+<span class="linenos">12</span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span>    <span class="n">mels_by_sales</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">log_file_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">17</span>        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">18</span>            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span>            <span class="c1"># Create a list of data and unpack its values</span>
+<span class="linenos">21</span>            <span class="n">salesperson_name</span><span class="p">,</span> <span class="n">total_dollars</span><span class="p">,</span> <span class="n">melons_sold</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span>            <span class="c1"># Set or increment the salesperson&#39;s total melons sold</span>
+<span class="linenos">24</span>            <span class="k">if</span> <span class="n">salesperson_name</span> <span class="ow">in</span> <span class="n">mels_by_sales</span><span class="p">:</span>
+<span class="linenos">25</span>                <span class="n">mels_by_sales</span><span class="p">[</span><span class="n">salesperson_name</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">melons_sold</span><span class="p">)</span>
+<span class="linenos">26</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos">27</span>                <span class="n">mels_by_sales</span><span class="p">[</span><span class="n">salesperson_name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">melons_sold</span><span class="p">)</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span>    <span class="k">return</span> <span class="n">mels_by_sales</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="k">def</span> <span class="nf">print_sales_report</span><span class="p">(</span><span class="n">melons_sold_by_salesperson</span><span class="p">):</span>
+<span class="linenos">33</span>    <span class="sd">&quot;&quot;&quot;Print a report of salespeople and the total no. of melons they&#39;ve sold.</span>
+<span class="linenos">34</span>
+<span class="linenos">35</span><span class="sd">    Arguments:</span>
+<span class="linenos">36</span><span class="sd">        melons_sold_by_salesperson (dict) - {salesperson_name: melons_sold}</span>
+<span class="linenos">37</span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span>    <span class="k">for</span> <span class="n">salesperson_name</span><span class="p">,</span> <span class="n">melons_sold</span> <span class="ow">in</span> <span class="n">melons_sold_by_salesperson</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="linenos">40</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">salesperson_name</span><span class="si">}</span><span class="s1"> sold </span><span class="si">{</span><span class="n">melons_sold</span><span class="si">}</span><span class="s1"> melons&#39;</span><span class="p">)</span>
+<span class="linenos">41</span>
+<span class="linenos">42</span>
+<span class="linenos">43</span><span class="n">print_sales_report</span><span class="p">(</span><span class="n">get_melons_sold_by_salesperson</span><span class="p">(</span><span class="s1">&#39;sales-report.txt&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section class="section" id="id2">
+<h3>Notes</h3>
+<ul>
+<li><p>We broke the initial script out into two functions —
+<cite>get_melons_sold_by_salesperson</cite> and <cite>print_sales_report</cite>.</p>
+<ul class="simple">
+<li><p><cite>get_melons_sold_by_salesperson</cite> returns a dictionary of total melons sold
+by salesperson</p></li>
+<li><p><cite>print_sales_report</cite> takes in a dictionary and prints a log of
+salespeople and their total sales</p></li>
+</ul>
+<p>What are some advantages of separating our logic into two functions?</p>
+</li>
+<li><p>On line <cite>16</cite></p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">get_melons_sold_by_salesperson</span></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="linenos">16</span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">log_file_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span class="linenos">17</span>        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos">18</span>            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="c1"># ...</span>
+</pre></div>
+</div>
+</div>
+<p>the <cite>with</cite> keyword creates a <cite>context manager</cite>. When you use <cite>with</cite> with a
+file object, Python will automatically close the file for you at the end of
+the code block.</p>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+        </main>
+
+        <footer id="page-footer">
+            <p>&copy; 2021 Devmountain</p>
+        </footer>
+      </div>
+
+      <script src="../_static/main.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+  </body>
+</html>

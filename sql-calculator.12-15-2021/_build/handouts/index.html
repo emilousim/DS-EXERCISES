@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>SQL Calculator | Devmountain Foundations</title>
+
+      <link
+        href="_static/pygments.css"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <link href="_static/devmountain.css" rel="stylesheet" type="text/css" />
+          <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+          <link rel="stylesheet" type="text/css" href="_static/devmountain.css" />
+          <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+          <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+
+      <script src="_static/pdfobject.min.js"></script>
+      
+  </head>
+  <body>
+      <div id="handouts-container">
+        <header id="page-header">
+            <p id="project-title">Devmountain Foundations</p>
+            <p id="page-title">SQL Calculator</p>
+              <p id="backlink">
+                <a href="/"> &laquo; Back to Homepage </a>
+              </p>
+        </header>
+
+        <nav id="page-toc"><ul>
+<li><a class="reference internal" href="#">SQL Calculator</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#part-1-sqlzoo-practice">Part 1: SQLZoo Practice</a></li>
+<li><a class="reference internal" href="#part-2-database-setup">Part 2: Database Setup</a></li>
+<li><a class="reference internal" href="#part-3-calculator-more">Part 3: Calculator &amp; More</a><ul>
+<li><a class="reference internal" href="#basic-info">Basic Info</a></li>
+<li><a class="reference internal" href="#joins">JOINs</a></li>
+<li><a class="reference internal" href="#filtering-using-aggregates">Filtering Using Aggregates</a></li>
+<li><a class="reference internal" href="#working-with-strings">Working with Strings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#part-4-discussion-questions">Part 4: Discussion Questions</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+
+        <main id="page-content">
+            <section class="section" id="sql-calculator">
+<h1>SQL Calculator</h1>
+<section class="section" id="introduction">
+<h2>Introduction</h2>
+<p>In this exercise, you’ll practice using intermediate and advanced SQL syntax,
+including aggregate functions, string manipulation, JOINs, and more.</p>
+</section>
+<section class="section" id="part-1-sqlzoo-practice">
+<h2>Part 1: SQLZoo Practice</h2>
+<p>Head over to SQLZOO and complete the following sections to warm up your
+SQL skills for today’s exercise.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://sqlzoo.net/wiki/SELECT_basics" target="_blank">Basic SQL</a></p></li>
+<li><p><a class="reference external" href="https://sqlzoo.net/wiki/SUM_and_COUNT" target="_blank">SUM and COUNT</a></p></li>
+<li><p><a class="reference external" href="https://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial" target="_blank">SELECT within SELECT</a></p></li>
+<li><p><a class="reference external" href="https://sqlzoo.net/wiki/The_JOIN_operation" target="_blank">JOIN</a></p></li>
+</ul>
+</section>
+<section class="section" id="part-2-database-setup">
+<h2>Part 2: Database Setup</h2>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>Note: This exercise assumes you have PostgreSQL installed on your machine.
+If you do NOT have PostgreSQL installed, either attempt the installation, or
+get in the queue to ask for help getting it installed.</p>
+<ol class="arabic simple">
+<li><p>Download the files for this exercise on Frodo.</p></li>
+<li><p>On the command line, go into the directory where the exercise files exist.</p></li>
+<li><p>On the command line, run the following command to create a new database.</p></li>
+</ol>
+<pre class="console literal-block">$ <span class="cmd">createdb projects</span></pre>
+<ol class="arabic simple" start="4">
+<li><p>Next, run the SQL file so that it creates rows/tables in the new database
+you created. You should see some SQL output after you run this.</p></li>
+</ol>
+<pre class="console literal-block">$ <span class="cmd">psql projects &lt; database.sql</span></pre>
+<ol class="arabic simple" start="5">
+<li><p>Access the interactive database console.</p></li>
+</ol>
+<pre class="console literal-block">$ <span class="cmd">psql projects</span></pre>
+<ol class="arabic simple" start="6">
+<li><p>Run a practice query. Make sure you see the proper results.</p></li>
+</ol>
+<pre class="console literal-block">projects=# <span class="cmd">SELECT * FROM projects;</span></pre>
+<p><strong>If you are not able to complete any of the above steps, ask for help in
+the queue.</strong></p>
+</section>
+<section class="section" id="part-3-calculator-more">
+<h2>Part 3: Calculator &amp; More</h2>
+<p>Begin a file, <cite>projects.sql</cite> where you will add each query that you write.
+Please label your queries using SQL comments, which begin with the characters
+<code class="docutils literal notranslate"><span class="pre">--</span></code>. Make sure to include a version of the result of each query as a comment
+below the query.</p>
+<p>For example, if question one asked you to write a query to find the id of the
+project <code class="docutils literal notranslate"><span class="pre">News</span> <span class="pre">Aggregator</span></code>, here is what you should add to the file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span> <span class="n">Problem</span> <span class="mi">1</span>
+
+<span class="n">SELECT</span> <span class="nb">id</span> <span class="n">FROM</span> <span class="n">projects</span> <span class="n">WHERE</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;News Aggregator&#39;</span><span class="p">;</span>
+<span class="o">--</span> <span class="n">Result</span><span class="p">:</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<section class="section" id="basic-info">
+<h3>Basic Info</h3>
+<ol class="arabic simple">
+<li><p>What is the average grade for the project called News Aggregator? Be sure
+to use the <code class="docutils literal notranslate"><span class="pre">AVG</span></code> aggregate function in your query.</p></li>
+<li><p>What is the sum of all points that the entire class received on the project
+called Recipe Storage? Be sure to use the <code class="docutils literal notranslate"><span class="pre">SUM</span></code> aggregate function in your
+query.</p></li>
+<li><p>How many total projects are there? Be sure to use the <code class="docutils literal notranslate"><span class="pre">COUNT</span></code> aggregate function
+in your query.</p></li>
+<li><p>What is the maximum grade that students received on the project called News
+Aggregator? Be sure to use the <code class="docutils literal notranslate"><span class="pre">MAX</span></code> function in your query.</p></li>
+<li><p>What is the minimum project that any student received on ANY project? Be sure
+to use the <code class="docutils literal notranslate"><span class="pre">MIN</span></code> function in your query.</p></li>
+</ol>
+</section>
+<section class="section" id="joins">
+<h3>JOINs</h3>
+<ol class="arabic simple" start="6">
+<li><p>Produce a result set that shows each grade, the project title, and the
+student name for that grade. (You will need to JOIN the <code class="docutils literal notranslate"><span class="pre">grades</span></code> and
+<code class="docutils literal notranslate"><span class="pre">students</span></code> table.)</p></li>
+<li><p>Produce a result set that shows each project, project id, and the number of
+grades that exist for that project. You will need to JOIN the <code class="docutils literal notranslate"><span class="pre">projects</span></code>
+and <code class="docutils literal notranslate"><span class="pre">grades</span></code> table.</p></li>
+</ol>
+</section>
+<section class="section" id="filtering-using-aggregates">
+<h3>Filtering Using Aggregates</h3>
+<p>The following queries can be written using either a JOIN or a sub-query.</p>
+<ol class="arabic simple" start="8">
+<li><p>How many scores for the News Aggregator project were above the average score?</p></li>
+<li><p>How many scores for the Snake Game were equal to the maximum score?</p></li>
+<li><p>Which projects have at least 5 grades in the <code class="docutils literal notranslate"><span class="pre">grades</span></code> table?</p></li>
+</ol>
+</section>
+<section class="section" id="working-with-strings">
+<h3>Working with Strings</h3>
+<ol class="arabic simple" start="11">
+<li><p>You need to generate text for a grade report that will go out to each</p></li>
+</ol>
+<blockquote>
+<div><p>student. Produce a result set for students who received a grade of
+90 or above that says <code class="docutils literal notranslate"><span class="pre">&quot;Congrats</span> <span class="pre">STUDENT_NAME,</span> <span class="pre">you</span> <span class="pre">received</span> <span class="pre">a</span> <span class="pre">SCORE</span> <span class="pre">on</span> <span class="pre">PROJECT_NAME&quot;</span></code>.
+You will need to use string concatenation in SQL for this problem.</p>
+</div></blockquote>
+<ol class="arabic simple" start="12">
+<li><p>Produce a similar report as you did in problem #9, but instead, produce
+a result set for students who received a score of 70 or less. The report
+should say <code class="docutils literal notranslate"><span class="pre">&quot;Your</span> <span class="pre">assignment</span> <span class="pre">needs</span> <span class="pre">improvement,</span> <span class="pre">you</span> <span class="pre">received</span> <span class="pre">a</span> <span class="pre">SCORE</span> <span class="pre">on</span> <span class="pre">PROJECT_NAME&quot;</span></code>.</p></li>
+<li><p>There is another database that categorizes students with a student id which
+is their <code class="docutils literal notranslate"><span class="pre">firstname-lastname</span></code>. Note that this id is all lowercase with a
+dash in between. Produce a result set which is the id for the other database
+for each student. You will need to lower case the first and last name for
+each student and concatenate strings together to make the full ID.</p></li>
+</ol>
+</section>
+</section>
+<section class="section" id="part-4-discussion-questions">
+<h2>Part 4: Discussion Questions</h2>
+<p>Using what you learned in the Advanced SQL videos, answer the following questions
+as comments in your <cite>database.sql</cite> file.</p>
+<ol class="arabic simple">
+<li><p>What is the significance of transactions in SQL? When would you want to use
+a transaction? What is the <strong>syntax</strong> for executing a transaction?</p></li>
+<li><p>What is the difference between implicit and explicit type conversion in
+SQL? Give an example of how you can execute explicit type conversion
+using SQL synax.</p></li>
+</ol>
+</section>
+</section>
+
+        </main>
+
+        <footer id="page-footer">
+            <p>&copy; 2021 Devmountain</p>
+        </footer>
+      </div>
+
+      <script src="_static/main.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+  </body>
+</html>

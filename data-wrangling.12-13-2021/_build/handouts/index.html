@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Data Wrangling Project | Devmountain Foundations</title>
+
+      <link
+        href="_static/pygments.css"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <link href="_static/devmountain.css" rel="stylesheet" type="text/css" />
+          <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+          <link rel="stylesheet" type="text/css" href="_static/devmountain.css" />
+          <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+          <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+
+      <script src="_static/pdfobject.min.js"></script>
+      
+  </head>
+  <body>
+      <div id="handouts-container">
+        <header id="page-header">
+            <p id="project-title">Devmountain Foundations</p>
+            <p id="page-title">Data Wrangling Project</p>
+              <p id="backlink">
+                <a href="/"> &laquo; Back to Homepage </a>
+              </p>
+        </header>
+
+        <nav id="page-toc"><ul>
+<li><a class="reference internal" href="#">Data Wrangling Project</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#choose-dataset">Choose Dataset</a><ul>
+<li><a class="reference internal" href="#dataset-requirements">Dataset Requirements</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#data-wrangling-practice">Data Wrangling Practice</a><ul>
+<li><a class="reference internal" href="#step-1-exploration">Step 1: Exploration</a></li>
+<li><a class="reference internal" href="#step-2-select-filter-sort">Step 2: Select, Filter, Sort</a></li>
+<li><a class="reference internal" href="#step-3-clean-data">Step 3: Clean Data</a></li>
+<li><a class="reference internal" href="#step-4-transform-data">Step 4: Transform Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+
+        <main id="page-content">
+            <section class="section" id="data-wrangling-project">
+<h1>Data Wrangling Project</h1>
+<section class="section" id="introduction">
+<h2>Introduction</h2>
+<p>In this project, you will choose a dataset and practice your
+data manipulation skills using Python and pandas.</p>
+</section>
+<section class="section" id="choose-dataset">
+<h2>Choose Dataset</h2>
+<p>Spend some time exploring datasets at DataSF:
+<a class="reference external" href="https://datasf.org/opendata/" target="_blank">https://datasf.org/opendata/</a></p>
+<p>Then, choose a dataset you would like to use for this exercise.</p>
+<section class="section" id="dataset-requirements">
+<h3>Dataset Requirements</h3>
+<ul class="simple">
+<li><p>Be sure that the dataset that you choose provides data in <code class="docutils literal notranslate"><span class="pre">.csv</span></code> format.</p></li>
+<li><p>Your dataset must include both numeric and textual data.</p></li>
+</ul>
+<p>When you have chosen, download the dataset.</p>
+</section>
+</section>
+<section class="section" id="data-wrangling-practice">
+<h2>Data Wrangling Practice</h2>
+<p>Using your lecture videos to guide your syntax, conduct the following
+steps of data manipulation using pandas. It will be helpful for you to follow
+along with the steps presented in the video
+<a class="reference external" href="https://app.pluralsight.com/library/courses/pandas-playbook-manipulating-data" target="_blank">Pandas Playbook: Manipulating Data</a>
+for this exercise.</p>
+<div class="admonition note">
+<p class="admonition-title">Write code in a Python file</p>
+<div class="admonition-body docutils container">
+<p>Be sure to <strong>write your code
+in a Python file</strong> that you can push to Github at the end. <strong>Do not use
+Jupyter notebook during this exercise.</strong> We will be covering Jupyter notebook
+later on in the course, but until then, continue to practice writing
+code in a regular <code class="docutils literal notranslate"><span class="pre">.py</span></code> file.</p>
+</div>
+</div>
+<section class="section" id="step-1-exploration">
+<h3>Step 1: Exploration</h3>
+<p>Write a function in Python that performs exploratory data analysis on your
+dataset. Use pandas to print basic information about your dataset such as
+number of rows, averages for numeric columns, and any other useful explanatory
+information about your dataset.</p>
+</section>
+<section class="section" id="step-2-select-filter-sort">
+<h3>Step 2: Select, Filter, Sort</h3>
+<p>Using dataframes in pandas, write 2-3 functions that filter and sort your
+dataset. For example, write a function that produces a subset of your data
+that includes a numeric value that is higher than the average numeric value for
+that column. Another example: write a function that sorts the rows alphabetically
+based on a texual column.</p>
+</section>
+<section class="section" id="step-3-clean-data">
+<h3>Step 3: Clean Data</h3>
+<p>Identify whether your dataset has any missing or null value using pandas.
+If there are null values in a numeric column, determine whether you should
+remove the data, or if there is a reasonable replacement for null, such as
+replacing it with a <code class="docutils literal notranslate"><span class="pre">0</span></code> value.</p>
+<p>Additionally, identify if there are any low/high outliers in your dataset
+using pandas.</p>
+</section>
+<section class="section" id="step-4-transform-data">
+<h3>Step 4: Transform Data</h3>
+<p>Conduct 1-2 data tranformations on your dataset, such as indexing your
+data with a useful numeric value, or combining multiple columns into a
+new column.</p>
+</section>
+</section>
+</section>
+
+        </main>
+
+        <footer id="page-footer">
+            <p>&copy; 2021 Devmountain</p>
+        </footer>
+      </div>
+
+      <script src="_static/main.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+  </body>
+</html>
