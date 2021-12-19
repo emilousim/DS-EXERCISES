@@ -17,7 +17,6 @@ newRest = str(input("Enter another restaurant!: "))
 
 newRestRating = ""
 newRestRating = int(input("Rate it, 1-5: "))
-
 d.update({newRest: newRestRating})
 
 print(sorted(d.items()))
