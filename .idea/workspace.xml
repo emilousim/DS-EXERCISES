@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="69eeaac7-0f5f-4d9e-b291-cd66ce2b9dcc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/data-wrangling.12-13-2021/.idea/data-wrangling.12-13-2021.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-wrangling.12-13-2021/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-wrangling.12-13-2021/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-wrangling.12-13-2021/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-wrangling.12-13-2021/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-wrangling.12-13-2021/StreetSmArts_Murals.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythonGuessingGame.12-7-2021" beforeDir="false" afterPath="$PROJECT_DIR$/pythonGuessingGame.12-7-2021" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythonGuessingGame.12-7-2021/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/pythonGuessingGame.12-7-2021/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql-quiz.12-10-2021/quiz.py" beforeDir="false" afterPath="$PROJECT_DIR$/sql-quiz.12-10-2021/quiz.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="22Vi6xcYyrGJQsZy16NLSIVN7G7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="69eeaac7-0f5f-4d9e-b291-cd66ce2b9dcc" name="Changes" comment="" />
+      <created>1639928985710</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1639928985710</updated>
+    </task>
+    <servers />
+  </component>
+</project>

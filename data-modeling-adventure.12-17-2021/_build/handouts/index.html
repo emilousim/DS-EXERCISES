@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Data Modeling Adventure | Devmountain Foundations</title>
+
+      <link
+        href="_static/pygments.css"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <link href="_static/devmountain.css" rel="stylesheet" type="text/css" />
+          <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+          <link rel="stylesheet" type="text/css" href="_static/devmountain.css" />
+          <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+          <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+
+      <script src="_static/pdfobject.min.js"></script>
+      
+  </head>
+  <body>
+      <div id="handouts-container">
+        <header id="page-header">
+            <p id="project-title">Devmountain Foundations</p>
+            <p id="page-title">Data Modeling Adventure</p>
+              <p id="backlink">
+                <a href="/"> &laquo; Back to Homepage </a>
+              </p>
+        </header>
+
+        <nav id="page-toc"><ul>
+<li><a class="reference internal" href="#">Data Modeling Adventure</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#part-1-discussion-questions">Part 1: Discussion Questions</a></li>
+<li><a class="reference internal" href="#part-2-food-environment-atlas">Part 2: Food Environment Atlas</a></li>
+<li><a class="reference internal" href="#part-3-applied-principles">Part 3: Applied Principles</a></li>
+<li><a class="reference internal" href="#part-4-covid-19-dataset">Part 4: Covid-19 Dataset</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+
+        <main id="page-content">
+            <section class="section" id="data-modeling-adventure">
+<h1>Data Modeling Adventure</h1>
+<section class="section" id="introduction">
+<h2>Introduction</h2>
+<p>In this exercise you will get additional practice with defining an appropriate
+model for an existing set of data.</p>
+</section>
+<section class="section" id="part-1-discussion-questions">
+<h2>Part 1: Discussion Questions</h2>
+<p>For this section, include your answers in a new file called <cite>discussion.txt</cite>.</p>
+<ol class="arabic simple">
+<li><p>Define normalization in your own words. Be sure to include why normalization is important.</p></li>
+<li><p>What is the difference between 1NF, 2NF, and 3NF?</p></li>
+</ol>
+<p><strong>Be sure to add, commit and push your answers to Github.</strong></p>
+</section>
+<section class="section" id="part-2-food-environment-atlas">
+<h2>Part 2: Food Environment Atlas</h2>
+<p>For this section, you will need to log in to
+<a class="reference external" href="https://data.world/adamhelsinger/food-environment-atlas" target="_blank">data.world</a>
+and download the USDA Food Environment Atlas dataset.</p>
+<p>One skill of data modeling is taking an existing dataset that is organized in files
+and creating a relational model that can be used in a SQL database. In this section,
+you will need to carefully review the data in the existing dataset for USDA’s
+Food Environment. While the data is organized within files, the existing structure
+would not be the perfect data model if you were to seed this data directly into a SQL
+database.</p>
+<p>After you have reviewed the data in detail, start making a list of tables for your
+database. As you consider whenther something should be a table, keep in mind that
+it’s helpful for <strong>tables to represent objects or entities</strong>, rather than
+ideas or concepts.</p>
+<p>After you have a list of tables, make a column list for each table. <strong>You should try to
+include all data from the dataset into your data model</strong>. In your colummn list, also
+include the datatype for each column.</p>
+<p>Lastly, consider the relationships between tables. Do you have a one-to-many relationship
+in your data model? Is there a need for any many-to-many relationships? Notate the
+relationships using lines between your tables.</p>
+<p>Once you have finished your draft, go to  <a class="reference external" href="https://www.dbdesigner.net/" target="_blank">DB Designer</a>
+and create a final version of your data model.</p>
+<p><strong>When you are finished, export your finished database as a PDF and add it to
+your repository for this lab exercise. Remember to push to Github!</strong></p>
+</section>
+<section class="section" id="part-3-applied-principles">
+<h2>Part 3: Applied Principles</h2>
+<ol class="arabic simple">
+<li><p>Imagine you work for the USDA and you are trying to decide how to allocate federal funding
+to different states/counties in the United States. <strong>What are some KPIs that may be important
+in order to make this decision?</strong></p></li>
+<li><p>Provide an example of what granularity would look like in the USDA database.</p></li>
+<li><p>Evaluate your data model in terms of normalization. Does your data model fulfill the first normal form?
+What about the second normal form? What about the third normal form?</p></li>
+</ol>
+<p><strong>Be sure to add, commit and push your answers to Github.</strong></p>
+</section>
+<section class="section" id="part-4-covid-19-dataset">
+<h2>Part 4: Covid-19 Dataset</h2>
+<p>Using the same steps as you used in Part 2, create a revised data model for the
+<a class="reference external" href="https://data.world/markmarkoh/coronavirus-data" target="_blank">Daily Coronavirus dataset</a>.</p>
+<p>The steps are summarized as follows:</p>
+<p>1. Inspect the data carefully.
+1. Create a list of tables.
+3. Determine the columns for each table.
+4. Decide on the relationships between tables, if any.
+5. Create a final version of your data model on <a class="reference external" href="https://www.dbdesigner.net/" target="_blank">DB Designer</a> .</p>
+<p><strong>Don’t forget to download the final version as a PDF and push to Github.</strong></p>
+</section>
+</section>
+
+        </main>
+
+        <footer id="page-footer">
+            <p>&copy; 2021 Devmountain</p>
+        </footer>
+      </div>
+
+      <script src="_static/main.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+  </body>
+</html>

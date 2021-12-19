@@ -14,7 +14,6 @@ import logging
 import readline
 
 log = logging.getLogger(__name__)
-
 MAX_ROWS = 20
 PROBLEM_FILE_PATH = "problem_set.pickle"
 INTRO = """
@@ -205,7 +204,7 @@ class Database():
     def connect():
         """Connect to DB and return cursor."""
 
-        conn = psycopg2.connect("dbname=quiz")
+        conn = psycopg2.connect(dbname="quiz",user="postgres", password="password")        
         conn.autocommit = True
         cursor = conn.cursor()
         return (cursor, conn)
