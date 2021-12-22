@@ -4,22 +4,17 @@ DORKY_LINE_LENGTH = 80
 
 print("*" * DORKY_LINE_LENGTH)
 f = open("orders-by-type.txt") 
-#opens txt file for us to pull data from
 melon_tallies = {"Musk":0, "Hybrid":0, "Watermelon":0, "Winter": 0} 
-#setting base tally at 0
 
 for l in f:
     data = l.split("|")
-    melon_type = data[1] # set melon_type data as the second index before |
-    melon_count = int(data[2]) # sets melon_count as the starting number in the third index separated by |
+    melon_type = data[1]
+    melon_count = int(data[2])
 
     melon_tallies[melon_type] += melon_count
-    #sets the tally at zero for the different melon types, melon_count will add or subtract depending on sales
 
-#everything between here and the open clause is where we are starting tallies setting our variables, and splitting up the information by the usage of |
 
-f.close() # closing txt file
-
+f.close() 
 melon_prices = { "Musk": 1.15, "Hybrid": 1.30, "Watermelon": 1.75, "Winter": 4.00 }
 
 total_revenue = 0
@@ -29,7 +24,6 @@ for melon_type in melon_tallies:
     revenue = price * melon_tallies[melon_type]
     total_revenue += revenue
 
-    # print("We sold %d %s melons at %0.2f each for a total of %0.2f" % (melon_tallies[melon_type], melon_type, price, revenue))
 
     print(f"We sold {melon_tallies[melon_type]} {melon_type} melons at {price:.2f} each for a total of {revenue:.2f}")
 print("******************************************")
