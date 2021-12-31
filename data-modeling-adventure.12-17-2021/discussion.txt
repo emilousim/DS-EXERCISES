@@ -1,0 +1,6 @@
+What is normalization and what does it do? 
+    Normalization breaks existing tables into multiple different smaller, more precise tables and links the info held within together through a key/related data. This process helps to minimize data redundancy and helps whoever's working with the data read it more easily. Normalization also helps to make adding, deleting, and updating data much simpler and less repetitive. 
+What are the differences between 1NF, 2NF, and 3NF? 
+    1st Normal Form: First normal form requires all rows to be unique, you can't have different rows with identical values. Each cell in the row must only contain a single value, not a list. Each value in the row must be in its simplest form and cannot be split down any further
+    2nd Normal Form:
+    3rd Normal Form: 
